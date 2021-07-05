@@ -1,12 +1,7 @@
 # TFG-Daniel-Sanchez
 
 
-# Repo en GitHub
-Privado
-Código en subcarpeta (para poner otro material fuera)
-
-—————————————————
-# Base de la aplicación
+# 1. Base de la aplicación
 
 App para jugar solo ( y todo lo más simple posible ).
 
@@ -26,7 +21,7 @@ Una vez sepamos la tecnología (React o Android Studio), escribo el anteproyecto
 
 —————————————————
 
-# Características extra
+# 2. Características extra
 Que servirán para los distintos modos de juego
 
 ## Tipos de pregunta
@@ -42,7 +37,7 @@ Y si queremos, que se recarguen al acertar x preguntas.
 
 
 —————————————————
-# Clasificaciones online
+# 3. Clasificaciones online
 
 ## Subir clasificaciones online
 Subir a una única lista
@@ -54,7 +49,7 @@ Y mostrarla en la aplicación
 
 —————————————————
 
-# Tipos de juego
+# 4. Tipos de juego
 Sería muy interesante implementar varios, ya que la parte básica ya la tendrías hecha y le da mucha variedad a la aplicación.
 Luego cada tipo de juego tiene una parte nueva que puede ser más o menos difícil de implementar (contador de tiempo, sistema para llevar las categorías desbloqueadas, etc.)
 
@@ -86,7 +81,7 @@ Se ha de ver en algún sitio las categorías que tienes desbloqueadas y que se g
 
 —————————————————
 
-# Estadísticas
+# 5. Estadísticas
 
 Será un menú que se accede desde el principal de la app.
 Se han de ir guardando en el dispositivo en cada partida.
@@ -103,7 +98,7 @@ Aquí sin que se nos complique mucho hay muchas cosas que se pueden poner
 
 —————————————————
 
-# Otros
+# 6. Otros
 
 - Compartir 
 El menú tipico para compartir en redes sociales, correo, etc
