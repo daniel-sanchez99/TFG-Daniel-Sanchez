@@ -2,8 +2,8 @@ import React from 'react';
 import type { Node } from 'react';
 import { SafeAreaView, StyleSheet, Button, Text } from 'react-native';
 
-import Clicker from './src/components/Clicker';
-import Preguntas from './src/components/PreguntasTest';
+//import Preguntas from './src/components/PreguntasTest';
+import DemoTrivia from './src/components/DemoTrivia';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -23,21 +23,21 @@ const MyStack = (): Node => {
           }}
         />
         <Stack.Screen
-          name="Clicker"
-          component={Clicker}
+          name="DemoTrivia"
+          component={DemoTrivia}
           options={{
             headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
             headerTintColor: 'white',
           }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="PreguntasTest"
           component={Preguntas}
           options={{
             headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
             headerTintColor: 'white',
           }}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -48,13 +48,15 @@ const Home = ({ navigation }): Node => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.texto}> TRIVIA </Text>
       <Button
-        title="Ir a clicker"
-        onPress={() => navigation.navigate('Clicker')}
-      />
-      <Button
         title="Comenzar"
-        onPress={() => navigation.navigate('PreguntasTest')}
+        onPress={() => navigation.navigate('DemoTrivia')}
+        color="#00a806"
       />
+      {/* <Button
+        title="Comenzar (test)"
+        onPress={() => navigation.navigate('PreguntasTest')}
+        color="#00a806"
+      /> */}
     </SafeAreaView>
   );
 };
