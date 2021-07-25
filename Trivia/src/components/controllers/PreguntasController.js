@@ -18,7 +18,7 @@ export function comprueba(seleccion, state, props) {
   } else {
     ToastAndroid.show('Incorrecto!', ToastAndroid.SHORT);
     props.navigation.goBack();
-    return Promise.resolve();
+    return Promise.resolve(state);
   }
 }
 
