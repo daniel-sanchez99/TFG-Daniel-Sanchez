@@ -10,7 +10,7 @@ const Home = ({ navigation }) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('TrueFalseTrivia')}
         style={styles.button}>
-        <Text style={styles.texto}>Comenzar</Text>
+        <Text style={styles.texto}>Begin</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

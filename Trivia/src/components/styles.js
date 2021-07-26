@@ -2,11 +2,37 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     alignItems: 'center',
     backgroundColor: 'rgb(46, 46, 46)',
+    justifyContent: 'space-around',
+    padding: 30,
+  },
+  containerPregunta: {
+    alignItems: 'center',
+    backgroundColor: 'rgb(100, 100, 100)',
     justifyContent: 'space-evenly',
     padding: 30,
+    borderRadius: 50,
+  },
+  containerCategoria: {
+    alignItems: 'center',
+    backgroundColor: 'rgb(250, 250, 250)',
+    justifyContent: 'space-evenly',
+    padding: 20,
+    borderRadius: 50,
+  },
+  containerPuntos: {
+    backgroundColor: 'rgb(100, 100, 100)',
+    padding: 15,
+    borderRadius: 20,
+    marginHorizontal: '5%',
+  },
+  containerVidas: {
+    backgroundColor: 'rgb(100, 100, 100)',
+    padding: 15,
+    borderRadius: 20,
+    marginHorizontal: '5%',
   },
   texto: {
     color: 'white',
@@ -14,7 +40,7 @@ const styles = StyleSheet.create({
   },
   textoP: {
     color: 'white',
-    fontSize: 5,
+    fontSize: 15,
   },
   textoN: {
     fontSize: 20,

@@ -16,16 +16,18 @@ const MyStack = () => {
           name="Home"
           component={Home}
           options={{
-            headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
-            headerTintColor: 'white',
+            //headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
+            //headerTintColor: 'white',
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name="TrueFalseTrivia"
           component={TrueFalseTrivia}
           options={{
-            headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
-            headerTintColor: 'white',
+            //headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
+            //headerTintColor: 'white',
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

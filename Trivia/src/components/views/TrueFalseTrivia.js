@@ -21,14 +21,31 @@ export default class Preguntas extends Component {
     categoria: '',
     dificultad: '',
     tipo: '',
+    puntos: 0,
+    vidas: 3,
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.texto}> {this.state.categoria} </Text>
-        <Text style={styles.texto}> {this.state.enunciado} </Text>
-        <Text style={styles.texto}> {this.state.dificultad} </Text>
+        <View style={styles.row}>
+          <View style={styles.containerPuntos}>
+            <Text style={styles.textoP}>Vidas: {this.state.vidas}</Text>
+          </View>
+
+          <View style={styles.containerPuntos}>
+            <Text style={styles.textoP}>Puntuacion: {this.state.puntos}</Text>
+          </View>
+        </View>
+
+        <View style={styles.containerCategoria}>
+          <Text style={styles.textoN}> {this.state.categoria} </Text>
+        </View>
+
+        <View style={styles.containerPregunta}>
+          <Text style={styles.texto}> {this.state.enunciado} </Text>
+        </View>
+
         <View style={styles.row}>
           <TouchableOpacity
             style={styles.buttonOption}
