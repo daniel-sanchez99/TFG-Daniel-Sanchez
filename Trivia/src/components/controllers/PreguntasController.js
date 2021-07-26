@@ -1,25 +1,28 @@
 import { ToastAndroid } from 'react-native';
 import axios from 'axios';
 
+import { actualizaVidas } from './VidasController';
+import { actualizaPuntos } from './PuntosController';
+
 export function comprueba(seleccion, state, props) {
   if (
     (seleccion && state.correcta === 'True') ||
     (!seleccion && state.correcta === 'False')
   ) {
     ToastAndroid.show('Correcto!', ToastAndroid.SHORT);
-    return fetchPregunta(state)
-      .then(response => {
-        return response;
-      })
-      .catch(function (error) {
-        console.log(error);
-        throw error;
-      });
+    actualizaPuntos(state);
   } else {
     ToastAndroid.show('Incorrecto!', ToastAndroid.SHORT);
-    props.navigation.goBack();
-    return Promise.resolve(state);
+    actualizaVidas(state, props);
   }
+  return fetchPregunta(state)
+    .then(response => {
+      return response;
+    })
+    .catch(function (error) {
+      console.log(error);
+      throw error;
+    });
 }
 
 export function fetchPregunta(state) {

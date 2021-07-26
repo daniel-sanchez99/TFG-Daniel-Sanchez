@@ -47,16 +47,14 @@ const styles = StyleSheet.create({
   },
   titulo: {
     fontWeight: 'bold',
-    marginTop: 30,
     color: 'white',
-    fontSize: 40,
+    fontSize: 60,
   },
   button: {
     backgroundColor: '#2bc400',
     paddingHorizontal: 20,
     paddingVertical: 18,
     borderRadius: 8,
-    marginHorizontal: '10%',
   },
   buttonOption: {
     backgroundColor: '#c7c7c7',

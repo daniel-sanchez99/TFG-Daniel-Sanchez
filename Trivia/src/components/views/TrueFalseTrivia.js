@@ -23,6 +23,7 @@ export default class Preguntas extends Component {
     tipo: '',
     puntos: 0,
     vidas: 3,
+    racha: 0,
   };
 
   render() {
