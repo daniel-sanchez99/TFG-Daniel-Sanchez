@@ -6,7 +6,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgb(46, 46, 46)',
     justifyContent: 'space-around',
-    padding: 30,
+    padding: 20,
+  },
+  containerRespuestas: {
+    backgroundColor: 'rgb(46, 46, 46)',
+    padding: 20,
   },
   containerPregunta: {
     alignItems: 'center',
@@ -55,12 +59,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 18,
     borderRadius: 8,
+    marginHorizontal: '3%',
   },
   buttonOption: {
     backgroundColor: '#c7c7c7',
     paddingHorizontal: 30,
     paddingVertical: 20,
     borderRadius: 20,
+    marginVertical: '1%',
     marginHorizontal: '5%',
   },
   row: {

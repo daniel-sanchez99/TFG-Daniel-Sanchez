@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 
 import styles from '../styles.js';
 
-import { comprueba, fetchPregunta } from '../controllers/PreguntasController';
+import {
+  comprueba,
+  fetchPreguntaMultiple,
+} from '../controllers/PreguntasController';
 
-export default class PreguntasTF extends Component {
+export default class PreguntasMul extends Component {
   constructor(props) {
     super(props);
-    fetchPregunta(this.state).then(response => {
+    fetchPreguntaMultiple(this.state).then(response => {
       this.setState(response);
     });
   }
@@ -17,7 +20,9 @@ export default class PreguntasTF extends Component {
   state = {
     enunciado: '',
     correcta: '',
-    incorrecta: '',
+    incorrecta1: '',
+    incorrecta2: '',
+    incorrecta3: '',
     categoria: '',
     dificultad: '',
     tipo: '',
@@ -28,7 +33,7 @@ export default class PreguntasTF extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.row}>
           <View style={styles.containerPuntos}>
             <Text style={styles.textoP}>Lives: {this.state.vidas}</Text>
@@ -47,7 +52,9 @@ export default class PreguntasTF extends Component {
           <Text style={styles.texto}> {this.state.enunciado} </Text>
         </View>
 
-        <View style={styles.row}>
+        {/*TODO PENSAR COMO DISTRIBUIR LAS CORRECTAS Y COMO COMPROBAR */}
+
+        <View style={styles.containerRespuestas}>
           <TouchableOpacity
             style={styles.buttonOption}
             onPress={() =>
@@ -55,7 +62,7 @@ export default class PreguntasTF extends Component {
                 this.setState(response);
               })
             }>
-            <Text style={styles.textoN}>True</Text>
+            <Text style={styles.textoN}>{this.state.correcta}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonOption}
@@ -64,11 +71,29 @@ export default class PreguntasTF extends Component {
                 this.setState(response);
               })
             }>
-            <Text style={styles.textoN}>False</Text>
+            <Text style={styles.textoN}>{this.state.incorrecta1}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonOption}
+            onPress={() =>
+              comprueba(true, this.state, this.props).then(response => {
+                this.setState(response);
+              })
+            }>
+            <Text style={styles.textoN}>{this.state.incorrecta2}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonOption}
+            onPress={() =>
+              comprueba(false, this.state, this.props).then(response => {
+                this.setState(response);
+              })
+            }>
+            <Text style={styles.textoN}>{this.state.incorrecta3}</Text>
           </TouchableOpacity>
         </View>
         {/* <Text style={styles.textoP}> Correcta: {this.state.correcta} </Text> */}
-      </View>
+      </SafeAreaView>
     );
   }
 }

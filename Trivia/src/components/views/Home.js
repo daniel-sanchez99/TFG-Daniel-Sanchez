@@ -8,7 +8,7 @@ const Home = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.titulo}> TRIVIA </Text>
       <TouchableOpacity
-        onPress={() => navigation.navigate('TrueFalseTrivia')}
+        onPress={() => navigation.navigate('ModeSelect')}
         style={styles.button}>
         <Text style={styles.texto}>Begin</Text>
       </TouchableOpacity>
