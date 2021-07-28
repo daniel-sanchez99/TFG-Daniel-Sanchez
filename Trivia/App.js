@@ -2,6 +2,7 @@ import React from 'react';
 
 import TrueFalseTrivia from './src/components/views/TrueFalseTrivia';
 import Home from './src/components/views/Home';
+import EndScreen from './src/components/views/EndScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -16,8 +17,6 @@ const MyStack = () => {
           name="Home"
           component={Home}
           options={{
-            //headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
-            //headerTintColor: 'white',
             headerShown: false,
           }}
         />
@@ -25,8 +24,13 @@ const MyStack = () => {
           name="TrueFalseTrivia"
           component={TrueFalseTrivia}
           options={{
-            //headerStyle: { backgroundColor: 'rgb(74, 74, 74)' },
-            //headerTintColor: 'white',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="EndScreen"
+          component={EndScreen}
+          options={{
             headerShown: false,
           }}
         />

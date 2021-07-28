@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   containerPregunta: {
     alignItems: 'center',
     backgroundColor: 'rgb(100, 100, 100)',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     padding: 30,
     borderRadius: 50,
   },
@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
   },
   buttonOption: {
     backgroundColor: '#c7c7c7',
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 8,
-    marginHorizontal: '10%',
+    paddingHorizontal: 30,
+    paddingVertical: 20,
+    borderRadius: 20,
+    marginHorizontal: '5%',
   },
   row: {
     flexDirection: 'row',

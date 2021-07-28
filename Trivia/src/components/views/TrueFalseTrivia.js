@@ -31,11 +31,11 @@ export default class Preguntas extends Component {
       <View style={styles.container}>
         <View style={styles.row}>
           <View style={styles.containerPuntos}>
-            <Text style={styles.textoP}>Vidas: {this.state.vidas}</Text>
+            <Text style={styles.textoP}>Lives: {this.state.vidas}</Text>
           </View>
 
           <View style={styles.containerPuntos}>
-            <Text style={styles.textoP}>Puntuacion: {this.state.puntos}</Text>
+            <Text style={styles.textoP}>Score: {this.state.puntos}</Text>
           </View>
         </View>
 
@@ -67,7 +67,7 @@ export default class Preguntas extends Component {
             <Text style={styles.textoN}>False</Text>
           </TouchableOpacity>
         </View>
-        <Text style={styles.textoP}> Correcta: {this.state.correcta} </Text>
+        {/* <Text style={styles.textoP}> Correcta: {this.state.correcta} </Text> */}
       </View>
     );
   }

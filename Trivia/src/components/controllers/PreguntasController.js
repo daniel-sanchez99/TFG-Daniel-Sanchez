@@ -15,14 +15,7 @@ export function comprueba(seleccion, state, props) {
     ToastAndroid.show('Incorrecto!', ToastAndroid.SHORT);
     actualizaVidas(state, props);
   }
-  return fetchPregunta(state)
-    .then(response => {
-      return response;
-    })
-    .catch(function (error) {
-      console.log(error);
-      throw error;
-    });
+  return fetchPregunta(state);
 }
 
 export function fetchPregunta(state) {
@@ -39,7 +32,9 @@ export function fetchPregunta(state) {
 }
 
 export function actualiza(state, response) {
-  state.enunciado = response.data.results[0].question;
+  state.enunciado = response.data.results[0].question
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, '´');
   state.correcta = response.data.results[0].correct_answer;
   state.incorrecta = response.data.results[0].incorrect_answers[0];
   state.categoria = response.data.results[0].category;
