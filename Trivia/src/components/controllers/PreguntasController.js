@@ -66,17 +66,3 @@ export function comprueba(seleccion, state, props) {
   }
   return fetchPregunta(state);
 }
-
-export function compruebaMultiple(seleccion, state, props) {
-  if (
-    (seleccion && state.correcta === 'True') ||
-    (!seleccion && state.correcta === 'False')
-  ) {
-    ToastAndroid.show('Correcto!', ToastAndroid.SHORT);
-    actualizaPuntos(state);
-  } else {
-    ToastAndroid.show('Incorrecto!', ToastAndroid.SHORT);
-    actualizaVidas(state, props);
-  }
-  return fetchPregunta(state);
-}
