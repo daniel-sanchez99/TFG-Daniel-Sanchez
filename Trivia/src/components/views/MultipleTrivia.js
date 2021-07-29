@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from '../styles.js';
 
 import {
-  comprueba,
+  compruebaMultiple,
   fetchPreguntaMultiple,
 } from '../controllers/PreguntasController';
 
@@ -20,12 +20,11 @@ export default class PreguntasMul extends Component {
   state = {
     enunciado: '',
     correcta: '',
-    incorrecta1: '',
-    incorrecta2: '',
-    incorrecta3: '',
+    opcion1: '',
+    opcion2: '',
+    opcion3: '',
+    opcion4: '',
     categoria: '',
-    dificultad: '',
-    tipo: '',
     puntos: 0,
     vidas: 3,
     racha: 0,
@@ -58,38 +57,54 @@ export default class PreguntasMul extends Component {
           <TouchableOpacity
             style={styles.buttonOption}
             onPress={() =>
-              comprueba(true, this.state, this.props).then(response => {
+              compruebaMultiple(
+                this.state.opcion1,
+                this.state,
+                this.props,
+              ).then(response => {
                 this.setState(response);
               })
             }>
-            <Text style={styles.textoN}>{this.state.correcta}</Text>
+            <Text style={styles.textoN}>{this.state.opcion1}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonOption}
             onPress={() =>
-              comprueba(false, this.state, this.props).then(response => {
+              compruebaMultiple(
+                this.state.opcion2,
+                this.state,
+                this.props,
+              ).then(response => {
                 this.setState(response);
               })
             }>
-            <Text style={styles.textoN}>{this.state.incorrecta1}</Text>
+            <Text style={styles.textoN}>{this.state.opcion2}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonOption}
             onPress={() =>
-              comprueba(true, this.state, this.props).then(response => {
+              compruebaMultiple(
+                this.state.opcion3,
+                this.state,
+                this.props,
+              ).then(response => {
                 this.setState(response);
               })
             }>
-            <Text style={styles.textoN}>{this.state.incorrecta2}</Text>
+            <Text style={styles.textoN}>{this.state.opcion3}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonOption}
             onPress={() =>
-              comprueba(false, this.state, this.props).then(response => {
+              compruebaMultiple(
+                this.state.opcion4,
+                this.state,
+                this.props,
+              ).then(response => {
                 this.setState(response);
               })
             }>
-            <Text style={styles.textoN}>{this.state.incorrecta3}</Text>
+            <Text style={styles.textoN}>{this.state.opcion4}</Text>
           </TouchableOpacity>
         </View>
         {/* <Text style={styles.textoP}> Correcta: {this.state.correcta} </Text> */}
