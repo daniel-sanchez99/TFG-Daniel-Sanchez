@@ -73,6 +73,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
+  textIn: {
+    alignSelf: 'center',
+    width: 200,
+    height: 50,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    color: 'black',
+  },
 });
 
 export default styles;

@@ -35,10 +35,10 @@ export function comprueba(seleccion, state, props) {
     (seleccion && state.correcta === 'True') ||
     (!seleccion && state.correcta === 'False')
   ) {
-    ToastAndroid.show('Correcto!', ToastAndroid.SHORT);
+    ToastAndroid.show('Correct!', ToastAndroid.SHORT);
     actualizaPuntos(state);
   } else {
-    ToastAndroid.show('Incorrecto!', ToastAndroid.SHORT);
+    ToastAndroid.show('Incorrect!', ToastAndroid.SHORT);
     actualizaVidas(state, props);
   }
   return fetchPregunta(state);
@@ -66,9 +66,6 @@ export function actualizaMultiple(state, response) {
     formato(response.data.results[0].incorrect_answers[1]),
     formato(response.data.results[0].incorrect_answers[2]),
   ]);
-
-  console.log(response.data.results[0].correct_answer);
-  console.log(respuestas);
 
   state.correcta = response.data.results[0].correct_answer;
   state.opcion1 = respuestas[0];

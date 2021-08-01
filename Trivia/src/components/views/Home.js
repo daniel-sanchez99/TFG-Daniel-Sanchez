@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, TouchableOpacity, Text } from 'react-native';
 
 import styles from '../styles.js';
-
+//TODO BOTON A LISTA DE SCORES
 const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>

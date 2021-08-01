@@ -3,6 +3,8 @@ import { SafeAreaView, TouchableOpacity, Text, View } from 'react-native';
 
 import styles from '../styles.js';
 
+//TODO hacer decente
+
 const Modes = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>

@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  Alert,
+  BackHandler,
+} from 'react-native';
 
 import styles from '../styles.js';
 
@@ -30,6 +37,28 @@ export default class PreguntasMul extends Component {
     racha: 0,
   };
 
+  backAction = () => {
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+      {
+        text: 'Cancel',
+        onPress: () => null,
+      },
+      { text: 'YES', onPress: () => this.props.navigation.navigate('Home') },
+    ]);
+    return true;
+  };
+
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.backAction,
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -50,8 +79,6 @@ export default class PreguntasMul extends Component {
         <View style={styles.containerPregunta}>
           <Text style={styles.texto}> {this.state.enunciado} </Text>
         </View>
-
-        {/*TODO PENSAR COMO DISTRIBUIR LAS CORRECTAS Y COMO COMPROBAR */}
 
         <View style={styles.containerRespuestas}>
           <TouchableOpacity

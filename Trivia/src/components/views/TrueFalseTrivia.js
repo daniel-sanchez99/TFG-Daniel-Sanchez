@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, BackHandler } from 'react-native';
 
 import styles from '../styles.js';
 
@@ -23,6 +23,28 @@ export default class PreguntasTF extends Component {
     vidas: 3,
     racha: 0,
   };
+
+  backAction = () => {
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+      {
+        text: 'Cancel',
+        onPress: () => null,
+      },
+      { text: 'YES', onPress: () => this.props.navigation.navigate('Home') },
+    ]);
+    return true;
+  };
+
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.backAction,
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
 
   render() {
     return (
