@@ -7,10 +7,10 @@ export function actualizaPuntos(state) {
   state.puntos = state.puntos + state.racha * 10;
 }
 
-//if los puntos >> los que estan subidos --> actualizar
-export function subePuntuacion(puntos, nombre) {
-  getScoreboardUser(nombre).then(response => {
-    if (response === '' || response > puntos) {
+export async function subePuntuacion(puntos, nombre) {
+  await getScoreUser(nombre).then(response => {
+    console.log(response);
+    if (response === '' || puntos > response) {
       ToastAndroid.show('New Record!', ToastAndroid.SHORT);
     }
   });
@@ -28,7 +28,7 @@ export function subePuntuacion(puntos, nombre) {
 }
 
 //coge puntuacion de user
-export function getScoreboardUser(nombre) {
+export function getScoreUser(nombre) {
   return axios
     .get('http://dreamlo.com/lb/610571cd8f40bb8ea051de90/pipe-get/' + nombre)
     .then(response => {
@@ -43,4 +43,20 @@ export function getScoreboardUser(nombre) {
 export function parsePipe(string) {
   var sinNombre = string.substring(string.indexOf('|') + 1);
   return sinNombre.substring(0, sinNombre.indexOf('|'));
+}
+//TODO si la lista esta vacia o solo 1 mensaje de error O en Leaderboard. Poner posicion tb
+export function getUserData() {
+  return axios
+    .get('http://dreamlo.com/lb/610571cd8f40bb8ea051de90/json')
+    .then(response => {
+      let respuesta = [];
+      for (let position of response.data.dreamlo.leaderboard.entry) {
+        respuesta.push(position);
+      }
+      return respuesta;
+    })
+    .catch(function (error) {
+      console.log(error);
+      throw error;
+    });
 }

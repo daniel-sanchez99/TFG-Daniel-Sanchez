@@ -50,7 +50,7 @@ const End = ({ navigation, route }) => {
             setSubmitted(true);
           }}
           disabled={submitted}
-          style={styles.button}>
+          style={!submitted ? styles.button : styles.buttonGrey}>
           <Text style={styles.texto}>
             {!submitted ? 'Submit' : 'Submitted'}
           </Text>

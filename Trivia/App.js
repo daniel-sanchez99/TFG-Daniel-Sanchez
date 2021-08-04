@@ -5,6 +5,7 @@ import Home from './src/components/views/Home';
 import EndScreen from './src/components/views/EndScreen';
 import ModeSelect from './src/components/views/ModeSelect';
 import MultipleTrivia from './src/components/views/MultipleTrivia';
+import LeaderBoard from './src/components/views/LeaderBoard';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -46,6 +47,13 @@ const MyStack = () => {
         <Stack.Screen
           name="MultipleTrivia"
           component={MultipleTrivia}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="LeaderBoard"
+          component={LeaderBoard}
           options={{
             headerShown: false,
           }}

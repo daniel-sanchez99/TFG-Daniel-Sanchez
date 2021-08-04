@@ -1,12 +1,16 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 2,
     alignItems: 'center',
     backgroundColor: 'rgb(46, 46, 46)',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     padding: 20,
+  },
+  containerLista: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
   },
   containerRespuestas: {
     backgroundColor: 'rgb(46, 46, 46)',
@@ -56,6 +60,13 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#2bc400',
+    paddingHorizontal: 20,
+    paddingVertical: 18,
+    borderRadius: 8,
+    marginHorizontal: '3%',
+  },
+  buttonGrey: {
+    backgroundColor: '#c7c7c7',
     paddingHorizontal: 20,
     paddingVertical: 18,
     borderRadius: 8,
