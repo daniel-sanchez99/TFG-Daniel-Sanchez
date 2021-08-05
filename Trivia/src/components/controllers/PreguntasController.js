@@ -35,10 +35,10 @@ export function comprueba(seleccion, state, props) {
     (seleccion && state.correcta === 'True') ||
     (!seleccion && state.correcta === 'False')
   ) {
-    //ToastAndroid.show('Correct!', ToastAndroid.SHORT);
+    ToastAndroid.show('Correct!', ToastAndroid.SHORT);
     actualizaPuntos(state);
   } else {
-    //ToastAndroid.show('Incorrect!', ToastAndroid.SHORT);
+    ToastAndroid.show('Incorrect!', ToastAndroid.SHORT);
     actualizaVidas(state, props);
   }
   return fetchPregunta(state);
@@ -79,17 +79,20 @@ export function actualizaMultiple(state, response) {
 
 export function compruebaMultiple(seleccion, state, props) {
   if (seleccion === state.correcta) {
-    ToastAndroid.show('Correcto!', ToastAndroid.SHORT);
+    ToastAndroid.show('Correct!', ToastAndroid.SHORT);
     actualizaPuntos(state);
   } else {
-    ToastAndroid.show('Incorrecto!', ToastAndroid.SHORT);
+    ToastAndroid.show('Incorrect!', ToastAndroid.SHORT);
     actualizaVidas(state, props);
   }
   return fetchPreguntaMultiple(state);
 }
 
 export function formato(texto) {
-  return texto.replace(/&quot;/g, '"').replace(/&#039;/g, '´');
+  return texto
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&#038;/g, '&');
 }
 
 function shuffle(array) {

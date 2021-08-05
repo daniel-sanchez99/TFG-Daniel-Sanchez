@@ -50,8 +50,26 @@ export function getUserData() {
     .get('http://dreamlo.com/lb/610571cd8f40bb8ea051de90/json')
     .then(response => {
       let respuesta = [];
-      for (let position of response.data.dreamlo.leaderboard.entry) {
-        respuesta.push(position);
+      type Elem = { name: string, score: number, index: number };
+      let elem: Elem = {};
+      let indice = 1;
+      console.log(response.data.dreamlo);
+      if (response.data.dreamlo.leaderboard === null) {
+        elem = { name: 'Empty', score: 'Empty', index: 0 };
+        respuesta.push(elem);
+      } else if (Object.keys(response.data.dreamlo.leaderboard).length === 1) {
+        elem = {
+          name: response.data.dreamlo.leaderboard.entry.name,
+          score: response.data.dreamlo.leaderboard.entry.score,
+          index: 1,
+        };
+        respuesta.push(elem);
+      } else {
+        for (let position of response.data.dreamlo.leaderboard.entry) {
+          elem = { name: position.name, score: position.score, index: indice };
+          indice++;
+          respuesta.push(elem);
+        }
       }
       return respuesta;
     })

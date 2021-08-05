@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
-import { FlatList, SafeAreaView, Text, TouchableOpacity } from 'react-native';
+import {
+  FlatList,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import { getUserData } from '../controllers/PuntosController';
 
 import styles from '../styles.js';
 
 const Item = ({ item }) => (
-  <TouchableOpacity style={styles.button}>
-    <Text>{item.name}</Text>
-  </TouchableOpacity>
+  <View style={styles.row}>
+    <TouchableOpacity style={styles.button}>
+      <Text>{item.index}</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button}>
+      <Text>{item.name}</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button}>
+      <Text>{item.score}</Text>
+    </TouchableOpacity>
+  </View>
 );
 
 const renderItem = ({ item }) => {
