@@ -4,20 +4,25 @@ import { ToastAndroid } from 'react-native';
 
 export function actualizaPuntos(state) {
   state.racha += 1;
+  if (state.racha >= 5) {
+    state.vidas++;
+  }
   state.puntos = state.puntos + state.racha * 10;
 }
 
 export async function subePuntuacion(puntos, nombre) {
-  await getScoreUser(nombre).then(response => {
-    console.log(response);
+  var nombreSinEspacio = nombre.replace(/ /g, '');
+
+  await getScoreUser(nombreSinEspacio).then(response => {
     if (response === '' || puntos > response) {
       ToastAndroid.show('New Record!', ToastAndroid.SHORT);
     }
   });
+
   axios
     .get(
       'http://dreamlo.com/lb/U_cKsyLTjEewwBMO3J_R2AmlU7jVyHUEmt1UPHV2y-8g/add/' +
-        nombre +
+        nombreSinEspacio +
         '/' +
         puntos,
     )
@@ -44,7 +49,7 @@ export function parsePipe(string) {
   var sinNombre = string.substring(string.indexOf('|') + 1);
   return sinNombre.substring(0, sinNombre.indexOf('|'));
 }
-//TODO si la lista esta vacia o solo 1 mensaje de error O en Leaderboard. Poner posicion tb
+
 export function getUserData() {
   return axios
     .get('http://dreamlo.com/lb/610571cd8f40bb8ea051de90/json')
@@ -53,11 +58,13 @@ export function getUserData() {
       type Elem = { name: string, score: number, index: number };
       let elem: Elem = {};
       let indice = 1;
-      console.log(response.data.dreamlo);
+
       if (response.data.dreamlo.leaderboard === null) {
         elem = { name: 'Empty', score: 'Empty', index: 0 };
         respuesta.push(elem);
-      } else if (Object.keys(response.data.dreamlo.leaderboard).length === 1) {
+      } else if (
+        Object.keys(response.data.dreamlo.leaderboard.entry).length === 1
+      ) {
         elem = {
           name: response.data.dreamlo.leaderboard.entry.name,
           score: response.data.dreamlo.leaderboard.entry.score,
