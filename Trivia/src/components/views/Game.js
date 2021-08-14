@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CountDown } from 'react-native-countdown-component';
 
 import {
   View,
@@ -16,11 +17,13 @@ import { comprueba, generaEstadoIni } from '../controllers/PreguntasController';
 export default class PreguntasMul extends Component {
   constructor(props) {
     super(props);
-    generaEstadoIni(props.route.params.mode, props.route.params.diff).then(
-      response => {
-        this.setState(response);
-      },
-    );
+    generaEstadoIni(
+      props.route.params.timelives,
+      props.route.params.mode,
+      props.route.params.diff,
+    ).then(response => {
+      this.setState(response);
+    });
   }
 
   state = {};
@@ -124,15 +127,38 @@ export default class PreguntasMul extends Component {
     }
   }
 
+  timeOrLives() {
+    if (this.state.timeOrLives === 'time') {
+      return (
+        <View style={styles.containerPuntos}>
+          <CountDown
+            until={300}
+            onFinish={() =>
+              this.props.navigation.navigate('EndScreen', {
+                puntos: this.state.puntos,
+              })
+            }
+            size={15}
+            timeToShow={['M', 'S']}
+          />
+        </View>
+      );
+    } else if (this.state.timeOrLives === 'lives') {
+      return (
+        <View style={styles.containerPuntos}>
+          <Text style={styles.textoP}>Lives: {this.state.vidas}</Text>
+        </View>
+      );
+    }
+  }
+
   render() {
     let respuestas = this.renderRespuestas();
+    let timeLives = this.timeOrLives();
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.row}>
-          <View style={styles.containerPuntos}>
-            <Text style={styles.textoP}>Lives: {this.state.vidas}</Text>
-          </View>
-
+          {timeLives}
           <View style={styles.containerPuntos}>
             <Text style={styles.textoP}>Score: {this.state.puntos}</Text>
           </View>

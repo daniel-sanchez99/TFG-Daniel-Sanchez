@@ -3,12 +3,30 @@ import { SafeAreaView, TouchableOpacity, Text, View } from 'react-native';
 
 import styles from '../styles.js';
 
+//TODO training (no vidas, preguntas hasta cansarte)
+
 const Modes = ({ navigation }) => {
   const [diff, setDiff] = useState('easy');
   const [mode, setMode] = useState('boolean');
+  const [timelives, setTimeLives] = useState('lives');
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.texto}> Select time or lives </Text>
+      <Text style={styles.texto}> {timelives} </Text>
+      <View style={styles.row}>
+        <TouchableOpacity
+          onPress={() => setTimeLives('time')}
+          style={styles.button}>
+          <Text style={styles.textoP}>Time</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setTimeLives('lives')}
+          style={styles.button}>
+          <Text style={styles.textoP}>Lives</Text>
+        </TouchableOpacity>
+      </View>
+
       <Text style={styles.texto}> Select game mode </Text>
       <Text style={styles.texto}> {mode} </Text>
       <View style={styles.row}>
@@ -40,7 +58,7 @@ const Modes = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Game', { mode, diff })}
+        onPress={() => navigation.navigate('Game', { timelives, mode, diff })}
         style={styles.button}>
         <Text style={styles.texto}>GO!</Text>
       </TouchableOpacity>

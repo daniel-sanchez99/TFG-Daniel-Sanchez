@@ -7,7 +7,24 @@ export function actualizaPuntos(state) {
   if (state.racha >= 5) {
     state.vidas++;
   }
-  state.puntos = state.puntos + state.racha * 10;
+  switch (state.timeOrLives) {
+    case 'time':
+      state.puntos = state.puntos + state.racha * 10;
+      break;
+    case 'lives':
+      switch (state.dificultad) {
+        case 'easy':
+          state.puntos = state.puntos + 10;
+          break;
+        case 'medium':
+          state.puntos = state.puntos + 20;
+          break;
+        case 'hard':
+          state.puntos = state.puntos + 30;
+          break;
+      }
+      break;
+  }
 }
 
 export async function subePuntuacion(puntos, nombre) {

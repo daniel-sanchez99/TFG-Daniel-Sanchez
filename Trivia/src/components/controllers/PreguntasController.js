@@ -13,7 +13,6 @@ export function fetchPregunta(state) {
         state.modo,
     )
     .then(response => {
-      //TODO resturn estado
       return updateState(response, state);
     })
     .catch(function (error) {
@@ -22,7 +21,7 @@ export function fetchPregunta(state) {
     });
 }
 
-export function generaEstadoIni(mode, diff) {
+export function generaEstadoIni(timelives, mode, diff) {
   //NO SE PUEDE HACER ESTO PORQUE SE GENERA CADA VEZ QUE SE PILLA PREGUNTA
   const state = {
     enunciado: '',
@@ -33,6 +32,7 @@ export function generaEstadoIni(mode, diff) {
     opcion3: '',
     opcion4: '',
     categoria: '',
+    timeOrLives: timelives,
     modo: mode,
     dificultad: diff,
     puntos: 0,

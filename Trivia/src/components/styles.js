@@ -35,12 +35,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 20,
     marginHorizontal: '5%',
-  },
-  containerVidas: {
-    backgroundColor: 'rgb(100, 100, 100)',
-    padding: 15,
-    borderRadius: 20,
-    marginHorizontal: '5%',
+    alignSelf: 'center',
   },
   texto: {
     color: 'white',
