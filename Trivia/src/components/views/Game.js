@@ -140,6 +140,11 @@ export default class PreguntasMul extends Component {
             }
             size={15}
             timeToShow={['M', 'S']}
+            timeLabels={{ m: null, s: null }}
+            digitStyle={{}}
+            digitTxtStyle={{ color: 'white' }}
+            separatorStyle={{ color: 'white' }}
+            showSeparator
           />
         </View>
       );
