@@ -22,7 +22,6 @@ export function fetchPregunta(state) {
 }
 
 export function generaEstadoIni(timelives, mode, diff) {
-  //NO SE PUEDE HACER ESTO PORQUE SE GENERA CADA VEZ QUE SE PILLA PREGUNTA
   const state = {
     enunciado: '',
     correcta: '',
@@ -48,7 +47,7 @@ export function generaEstadoIni(timelives, mode, diff) {
       state.vidas = 5;
       break;
     case 'hard':
-      state.vidas = 2;
+      state.vidas = 3;
       break;
   }
   return fetchPregunta(state);
@@ -111,9 +110,12 @@ export function comprueba(seleccion, state, props) {
 
 export function formato(texto) {
   return texto
+    .replace(/&ldquo;/g, '"')
+    .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#039;/g, "'")
-    .replace(/&#038;/g, '&');
+    .replace(/&#038;/g, '&')
+    .replace(/&rdquo;/g, "'");
 }
 
 function shuffle(array) {

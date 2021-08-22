@@ -35,7 +35,7 @@ const End = ({ navigation, route }) => {
         <Text style={styles.texto}> Final Score: {route.params.puntos} </Text>
       </View>
 
-      <View style={styles.row}>
+      <View style={styles.containerLight}>
         <TextInput
           style={styles.textIn}
           placeholder="Enter your name"
@@ -50,8 +50,8 @@ const End = ({ navigation, route }) => {
             setSubmitted(true);
           }}
           disabled={submitted}
-          style={!submitted ? styles.button : styles.buttonGrey}>
-          <Text style={styles.texto}>
+          style={!submitted ? styles.button : styles.buttonSubmitted}>
+          <Text style={styles.textoN}>
             {!submitted ? 'Submit' : 'Submitted'}
           </Text>
         </TouchableOpacity>
@@ -60,7 +60,7 @@ const End = ({ navigation, route }) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={styles.button}>
-        <Text style={styles.texto}>Back to Home</Text>
+        <Text style={styles.textoN}>Back to Home</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

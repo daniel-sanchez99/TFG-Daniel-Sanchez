@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
 import { CountDown } from 'react-native-countdown-component';
 
@@ -130,7 +131,7 @@ export default class PreguntasMul extends Component {
   timeOrLives() {
     if (this.state.timeOrLives === 'time') {
       return (
-        <View style={styles.containerPuntos}>
+        <View style={styles.containerSmall}>
           <CountDown
             until={300}
             onFinish={() =>
@@ -150,7 +151,7 @@ export default class PreguntasMul extends Component {
       );
     } else if (this.state.timeOrLives === 'lives') {
       return (
-        <View style={styles.containerPuntos}>
+        <View style={styles.containerSmall}>
           <Text style={styles.textoP}>Lives: {this.state.vidas}</Text>
         </View>
       );
@@ -164,7 +165,7 @@ export default class PreguntasMul extends Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.row}>
           {timeLives}
-          <View style={styles.containerPuntos}>
+          <View style={styles.containerSmall}>
             <Text style={styles.textoP}>Score: {this.state.puntos}</Text>
           </View>
         </View>

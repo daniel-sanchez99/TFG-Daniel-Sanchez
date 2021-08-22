@@ -4,7 +4,7 @@ import { ToastAndroid } from 'react-native';
 
 export function actualizaPuntos(state) {
   state.racha += 1;
-  if (state.racha >= 5) {
+  if (state.racha >= 5 && state.racha % 5 === 0) {
     state.vidas++;
   }
   switch (state.timeOrLives) {
@@ -28,7 +28,7 @@ export function actualizaPuntos(state) {
 }
 
 export async function subePuntuacion(puntos, nombre) {
-  var nombreSinEspacio = nombre.replace(/ /g, '');
+  var nombreSinEspacio = nombre.replace(/ /g, '').replace(':', '');
 
   await getScoreUser(nombreSinEspacio).then(response => {
     if (response === '' || puntos > response) {
