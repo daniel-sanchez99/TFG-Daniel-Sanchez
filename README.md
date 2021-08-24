@@ -1,5 +1,6 @@
 # TFG-Daniel-Sanchez
-
+ANTEPROYECTO subido esperando a ser aprobado
+Presenta el 17 septiembre
 
 # 1. Base de la aplicación
 
