@@ -79,9 +79,7 @@ export function getUserData() {
       if (response.data.dreamlo.leaderboard === null) {
         elem = { name: 'Empty', score: 'Empty', index: 0 };
         respuesta.push(elem);
-      } else if (
-        Object.keys(response.data.dreamlo.leaderboard.entry).length === 1
-      ) {
+      } else if (!Array.isArray(response.data.dreamlo.leaderboard.entry)) {
         elem = {
           name: response.data.dreamlo.leaderboard.entry.name,
           score: response.data.dreamlo.leaderboard.entry.score,
